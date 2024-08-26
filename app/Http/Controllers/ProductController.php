@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('index',compact('products'));
+        return view('index', compact('products'));
     }
     public function show(Product $product)
     {
@@ -25,7 +25,11 @@ class ProductController extends Controller
     public function store(CreateProductRequest $request)
     {
         $product = Product::create($request->except("_token"));
-        return redirect()->back()->with("message","محصول با موفقیت اضافه شد");
+        // Handle Image Upload
+        if ($request->hasFile('image')) {
+            $product->addMediaFromRequest('image')->toMediaCollection();
+        }
+        return redirect()->back()->with("message", "محصول با موفقیت اضافه شد");
     }
     public function edit()
     {
