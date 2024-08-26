@@ -46,4 +46,10 @@ class ProductController extends Controller
         }
         return redirect()->back()->with("success", "محصول با موفقیت ویرایش شد");
     }
+    public function destroy(Product $product)
+    {
+        $product->clearMediaCollection();
+        $product->delete();
+        return redirect()->route('index')->with('success','محصول با موفقیت حذف شد');
+    }
 }

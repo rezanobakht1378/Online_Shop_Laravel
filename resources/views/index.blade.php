@@ -24,7 +24,13 @@
 
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
-            <a href="{{ route('product.create') }}" class="btn btn-success mb-3">اضافه کردن محصول<i class="bi bi-file-earmark-plus-fill"></i></a>
+            @if (session('success'))
+                <div class="alert alert-success m-3">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <a href="{{ route('product.create') }}" class="btn btn-success mb-3">اضافه کردن محصول<i
+                    class="bi bi-file-earmark-plus-fill"></i></a>
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @foreach ($products as $product)
                     <div class="col">

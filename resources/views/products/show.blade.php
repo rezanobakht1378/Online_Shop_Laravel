@@ -21,17 +21,22 @@
                                 <ul class="list-group">
                                     <li class="list-group-item"><strong>نام: </strong>{{ $product->name }}</li>
                                     <li class="list-group-item"><strong>توضیحات: </strong>{{ $product->description }}</li>
-                                    <li class="list-group-item"><strong>قیمت: </strong>${{ $product->price }}</li>
-                                    <li class="list-group-item"><strong>موجودی: </strong>{{ $product->stock }}</li>
+                                    <li class="list-group-item"><strong>قیمت: </strong>
+                                        {{ number_format($product->price) }} تومان</li>
+                                    <li class="list-group-item"><strong>موجودی: </strong>{{ $product->quantity }}</li>
                                 </ul>
                             </div>
                         </div>
                         <!-- Edit Button -->
                         <div class="mt-3">
-                            <a href="{{ route('product.edit', $product->id) }}" class="btn btn-outline-secondary">ویرایش
-                                محصول</a>
-                            <a href="{{ route('product.destroy', $product->id) }}"
-                                class="btn btn-danger btn-outline-secondary text-light">حذف محصول</a>
+                            <form action="{{ route('product.destroy', $product) }}" method="POST">
+                                <a href="{{ route('product.edit', $product->id) }}" class="btn btn-outline-secondary">ویرایش
+                                    محصول</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-outline-secondary text-light">حذف
+                                    محصول</button>
+                            </form>
                         </div>
                     </div>
                 </div>
