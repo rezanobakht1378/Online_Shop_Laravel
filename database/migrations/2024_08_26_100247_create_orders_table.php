@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('phone');
             $table->text('address');
             $table->string('status')->default("not paid");
+            $table->float('price')->default(0);
+            $table->float('discount')->default(0);
             $table->timestamps();
         });
     }
