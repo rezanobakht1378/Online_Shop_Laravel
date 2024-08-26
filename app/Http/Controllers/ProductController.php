@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -30,9 +31,20 @@ class ProductController extends Controller
         }
         return redirect()->back()->with("message", "محصول با موفقیت اضافه شد");
     }
-    public function edit()
+    public function edit(Product $product)
     {
         //TODO: check permission to access edit product
-        return view('products.create');//edit
+        // dd($product);
+        return view('products.edit', compact('product'));//edit
+    }
+    public function update(UpdateProductRequest $request,Product $product)
+    {
+        $product->update($request->except("_token"));
+        if ($request->hasFile('image')) {
+            if ($product->hasMedia())
+                $product->clearMediaCollection();
+            $product->addMediaFromRequest('image')->toMediaCollection();
+        }
+        return redirect()->back()->with("success", "محصول با موفقیت ویرایش شد");
     }
 }
