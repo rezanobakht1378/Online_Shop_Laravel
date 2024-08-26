@@ -16,7 +16,7 @@ class ProductController extends Controller
     }
     public function show(Product $product)
     {
-        //TODO: return view of product details and product data is $product
+        return view('products.show', compact('product'));
     }
     public function create()
     {
@@ -36,7 +36,7 @@ class ProductController extends Controller
         //TODO: check permission to access edit product
         return view('products.edit', compact('product'));//edit
     }
-    public function update(UpdateProductRequest $request,Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
         $product->update($request->except("_token"));
         if ($request->hasFile('image')) {
