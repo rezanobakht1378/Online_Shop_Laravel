@@ -2,9 +2,9 @@
 @section('content')
     <section class="py-3 text-center container">
         <div class="row pt-lg-5">
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="mx-auto">
                 <h1 class="fw-light">فروشگاه عطر هاشمی - رایحه‌ای از کیفیت و اعتماد</h1>
-                <p class="lead text-body-secondary">
+                <p class="lead text-body-secondary" style="text-align: justify;">
                     به فروشگاه عطر هاشمی خوش آمدید!
                     ما در فروشگاه عطر هاشمی با افتخار مجموعه‌ای بی‌نظیر از بهترین عطرهای اورجینال و باکیفیت را برای شما
                     عزیزان گردآوری کرده‌ایم. هدف ما این است که با ارائه محصولات معتبر از برندهای معتبر جهانی، تجربه‌ای
