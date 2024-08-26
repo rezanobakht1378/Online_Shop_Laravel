@@ -10,8 +10,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <meta name="theme-color" content="#712cf9">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('css/bootstrap-icons.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('css/Vazirmatn-font-face.css') }}">
     @yield('css')
 </head>
 

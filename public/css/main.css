@@ -8,11 +8,11 @@ html {
     -o-tab-size: 4;
     tab-size: 4;
     /* 3 */
-    font-family: WebFontRegular, Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"!important;
+    font-family: WebFontRegular, Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
     /* 4 */
     position: relative;
     min-height: 100%;
-    /* direction: rtl !important; */
+    direction: rtl !important;
 }
 
 body {
@@ -20,9 +20,13 @@ body {
     /* 1 */
     line-height: inherit;
     /* 2 */
-    font-family: WebFontRegular !important;
+    font-family: Vazirmatn, sans-serif;
     margin-bottom: 60px;
     /* Margin bottom by footer height */
+}
+
+a {
+    text-decoration: none;
 }
 
 .bd-placeholder-img {
