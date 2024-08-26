@@ -54,8 +54,10 @@
                                     <p class="card-text">{{ $product->description }}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">نمایش</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">ویرایش</button>
+                                            <form action="{{ route('product.edit', $product) }}" method="GET">
+                                                <button type="submit"
+                                                    class="btn btn-sm btn-outline-secondary">ویرایش</button>
+                                            </form>
                                         </div>
                                         <small class="text-body-secondary">{{ number_format($product->price) }} تومان
                                         </small>

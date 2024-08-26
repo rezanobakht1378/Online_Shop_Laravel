@@ -17,7 +17,7 @@ class Product extends Model implements HasMedia
         "price",
         "quantity"
     ];
-    public function image()
+    public function getImageAttribute()
     {
         return $this->getMedia()->count() > 0 ? $this->getMedia()[0]->getUrl() : asset('img/noImage.png');
     }

@@ -20,11 +20,16 @@ class ProductController extends Controller
     public function create()
     {
         //TODO: check permission to access create product
-        //TODO: return view of create product
+        return view('products.create');
     }
     public function store(CreateProductRequest $request)
     {
         $product = Product::create($request->except("_token"));
         return redirect()->back()->with("message","محصول با موفقیت اضافه شد");
+    }
+    public function edit()
+    {
+        //TODO: check permission to access edit product
+        return view('products.create');//edit
     }
 }
