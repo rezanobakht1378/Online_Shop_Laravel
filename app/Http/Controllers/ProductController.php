@@ -34,7 +34,6 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //TODO: check permission to access edit product
-        // dd($product);
         return view('products.edit', compact('product'));//edit
     }
     public function update(UpdateProductRequest $request,Product $product)
