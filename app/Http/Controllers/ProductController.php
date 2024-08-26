@@ -25,7 +25,6 @@ class ProductController extends Controller
     public function store(CreateProductRequest $request)
     {
         $product = Product::create($request->except("_token"));
-        // Handle Image Upload
         if ($request->hasFile('image')) {
             $product->addMediaFromRequest('image')->toMediaCollection();
         }
