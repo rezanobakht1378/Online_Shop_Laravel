@@ -93,6 +93,7 @@
         transform: scale(0.95);
     }
 
+    input[type=password],
     input[type=text] {
         background-color: #f6f6f6;
         border: none;
@@ -281,11 +282,24 @@
             <!-- Login Form -->
             <form action="{{route('user.login')}}" method="POST">
                 @csrf
-                <input type="text" id="login" class="fadeIn second" name="email" placeholder="ایمیل">
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="رمز عبور">
-                <input type="submit" class="fadeIn fourth" value="ورود">
+                <input type="text" id="login" class="fadeIn second" name="email" placeholder="ایمیل" />
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="رمز عبور" />
+                <input type="submit" class="fadeIn fourth" value="ورود" />
             </form>
-
+            @if ($errors->any())
+            <div class="alert alert-danger mx-3">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @if (session('success'))
+            <div class="alert alert-success m-3">
+                {{ session('success') }}
+            </div>
+            @endif
             <!-- Remind Passowrd -->
             <div id="formFooter">
                 <a class="underlineHover" href="#">رمز عبور خود را فراموش کرده اید؟</a>

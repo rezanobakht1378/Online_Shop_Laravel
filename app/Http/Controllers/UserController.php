@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Auth;
@@ -18,9 +19,18 @@ class UserController extends Controller
     {
         return view('users.login');
     }
-    public function login()
+    public function login(LoginRequest $request)
     {
+        if (Auth::viaRemember() || Auth::attempt($request->only(['email', 'password']), $request->get('remember', false))) {
+            $request->session()->regenerate();
+            return redirect()->back();
+        }
 
+        return back()->withErrors([
+            'email' => 'اطلاعات وارد شده، صحیح نمی باشد.'
+        ])->onlyInput('email');
+
+        return redirect()->route('index');
     }
     public function registerPage()
     {
@@ -36,5 +46,12 @@ class UserController extends Controller
         Auth::login($user);
         // Redirect with success message
         return redirect()->route('index')->with('success', 'ثبت نام با موفقیت انجام شد');
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('index');
     }
 }
