@@ -19,6 +19,10 @@
                         <li><a href="tel:+989103649233" class="btn my-2"><i class="bi bi-telephone"> 0989103649233</i></a></li>
                     </ul>
                 </div>
+                @guest
+                    <a href="{{ route('user.registerPage') }}">ثبت نام</a>
+                    <a href="{{ route('user.loginPage') }}">ورود</a>
+                @endguest
             </div>
         </div>
     </div>

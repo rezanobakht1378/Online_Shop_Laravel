@@ -1,4 +1,4 @@
-<footer class="text-body-secondary py-5">
+<footer class="text-body-secondary py-5 mt-3 shadow" style="background-color: #D7DEE0;">
     <div class="container">
       <p class="float-start mb-1">
         <a href="#">بازگشت به بالا</a>

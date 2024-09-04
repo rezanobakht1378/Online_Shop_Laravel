@@ -14,6 +14,18 @@ class UserController extends Controller
         $users = User::paginate(10);
         return view('users.index', compact('users'));
     }
+    public function loginPage()
+    {
+        return view('users.login');
+    }
+    public function login()
+    {
+
+    }
+    public function registerPage()
+    {
+        return view('users.register');
+    }
     public function register(RegisterRequest $request)
     {
         $user = User::create([
