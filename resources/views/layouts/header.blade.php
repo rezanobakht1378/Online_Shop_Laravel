@@ -24,16 +24,22 @@
                                     0989103649233</i></a></li>
                     </ul>
                 </div>
-                @guest
-                <a href="{{ route('user.registerPage') }}">ثبت نام</a>
-                <a href="{{ route('user.loginPage') }}">ورود</a>
-                @endguest
-                @auth
-                <form action="{{ route('user.logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">خروج</a>
-                </form>
-                @endauth
+                <div class="d-flex col-3">
+                    @guest
+                    <a href="{{ route('user.registerPage') }}" class="mx-2">ثبت نام</a>/
+                    <a href="{{ route('user.loginPage') }}" class="mx-2">ورود</a>
+                    @endguest
+                    @auth
+
+                    <form action="{{ route('user.logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">خروج</button>
+                    </form>
+                    <a href="{{ route('user.account',auth()->user()->id) }}" class="btn btn-info mx-3">{{
+                        auth()->user()->name
+                        }}</a>
+                    @endauth
+                </div>
             </div>
         </div>
     </div>

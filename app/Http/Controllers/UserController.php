@@ -15,6 +15,10 @@ class UserController extends Controller
         $users = User::paginate(10);
         return view('users.index', compact('users'));
     }
+    public function show(User $user)
+    {
+        return view('users.show',compact('user'));
+    }
     public function loginPage()
     {
         return view('users.login');
@@ -41,6 +45,8 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'address' => $request->input('address'),
             'password' => bcrypt($request->input('password')), // Encrypt the password
         ]);
         Auth::login($user);
