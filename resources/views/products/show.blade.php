@@ -28,16 +28,22 @@
                             </div>
                         </div>
                         <!-- Edit Button -->
-                        <div class="mt-3">
-                            <form action="{{ route('product.destroy', $product) }}" method="POST">
-                                <a href="{{ route('product.edit', $product->id) }}" class="btn btn-outline-secondary">ویرایش
-                                    محصول</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-outline-secondary text-light">حذف
-                                    محصول</button>
-                            </form>
-                        </div>
+                        @can(['product.update', 'product.delete'])
+                            <div class="mt-3">
+                                <form action="{{ route('product.destroy', $product) }}" method="POST">
+                                    @can('product.update')
+                                        <a href="{{ route('product.edit', $product->id) }}" class="btn btn-outline-secondary">ویرایش
+                                            محصول</a>
+                                    @endcan
+                                    @csrf
+                                    @can('product.delete')
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-outline-secondary text-light">حذف
+                                            محصول</button>
+                                    @endcan
+                                </form>
+                            </div>
+                        @endcan
                     </div>
                 </div>
             </div>
