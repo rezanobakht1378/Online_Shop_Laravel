@@ -48,6 +48,11 @@
                                             </form>
                                         </div>
                                     @endcan
+                                    <div class="btn-group col-8">
+                                        <form action="{{ route('product.edit', $product) }}" method="GET">
+                                            <button type="submit" class="btn btn-sm btn-outline-success">خرید</button>
+                                        </form>
+                                    </div>
                                     <small class="text-body-secondary">{{ number_format($product->price) }} تومان
                                     </small>
                                 </div>

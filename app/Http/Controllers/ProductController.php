@@ -52,4 +52,10 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('index')->with('success','محصول با موفقیت حذف شد');
     }
+    public function buy(Product $product)
+    {
+        if(!auth()->check())
+            return view('users.login');
+        return view('products.buy',compact('product'));
+    }
 }
