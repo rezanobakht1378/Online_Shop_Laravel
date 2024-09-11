@@ -21,7 +21,7 @@
 
 <body>
     @include('layouts.header')
-    <main>
+    <main style="min-height: 660px;">
         @yield('content')
     </main>
     @include('layouts.footer')
