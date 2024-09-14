@@ -49,7 +49,7 @@
                                         </div>
                                     @endcan
                                     <div class="btn-group col-8">
-                                        <form action="{{ route('product.edit', $product) }}" method="GET">
+                                        <form action="{{ route('product.buy', $product) }}" method="GET">
                                             <button type="submit" class="btn btn-sm btn-outline-success">خرید</button>
                                         </form>
                                     </div>
